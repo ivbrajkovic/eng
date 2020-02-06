@@ -4,13 +4,19 @@
 @import './footer.css';
 
 #app {
-  /* height: 100%; */
-  min-height: 100%;
+  height: 100%;
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 100%;
-  /* padding-left: 2rem;
-    padding-right: 2rem; */
+  grid-template-columns: 1fr;
+  grid-template-rows: 3rem auto 6rem;
+}
+
+@media (min-width: 576px) {
+  #app {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3rem auto 8rem;
+  }
 }
 
 .navbar {

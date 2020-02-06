@@ -9,7 +9,7 @@
   "private": true,
   "description": "",
   "scripts": {
-    "start": "webpack-dev-server --env.NODE_ENV=development --config webpack.config.js --open",
+    "start": "webpack-dev-server --port 8080 --host 0.0.0.0 --env.NODE_ENV=development --config webpack.config.js --open",
     "dev": "webpack --config webpack.config.js",
     "build": "webpack --env.NODE_ENV=production --config webpack.config.js",
     "analyze": "webpack --env.NODE_ENV=production --env.analyze --config webpack.config.js",

@@ -24,8 +24,8 @@ const Form = () => {
   const [error, setError] = useState();
 
   return (
-    <div class="container mt-3 mt-md-4 mt-xl-5">
-      <div class="row">
+    <main class="container mt-3 mt-md-4 mt-xl-5">
+      <div class="row justify-content-center justify-content-md-start">
         <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
           <div class="card shadow">
             <div class="card-body">
@@ -65,7 +65,7 @@ const Form = () => {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

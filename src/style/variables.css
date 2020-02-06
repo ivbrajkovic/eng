@@ -4,6 +4,7 @@
 
 :root {
   --ff-primary: 'Montserrat', sans-serif;
+  /* --ff-primary: 'Roboto', 'Helvetica', 'Arial', sans-serif; */
   --ff-secondary: 'Work Sans', sans-serif;
 
   --fw-regular: 400;
@@ -18,6 +19,12 @@
   --clr-accent: #16e0bd;
   --clr-body: rgb(250, 250, 250);
 
+  /* --fs-h1: 3px;
+  --fs-h2: 2.25px;
+  --fs-h3: 1.25px;
+  --fs-h4: 1px;
+  --fs-body: 1px; */
+
   --fs-h1: 3rem;
   --fs-h2: 2.25rem;
   --fs-h3: 1.25rem;
@@ -30,6 +37,12 @@
 
 @media (min-width: 800px) {
   :root {
+    /* --fs-h1: 4.5px;
+    --fs-h2: 3.75px;
+    --fs-h3: 1.5px;
+    --fs-h4: 1.125px;
+    --fs-body: 1.125px; */
+
     --fs-h1: 4.5rem;
     --fs-h2: 3.75rem;
     --fs-h3: 1.5rem;

@@ -3,16 +3,16 @@ import './style/style.css';
 import './vendor/fa';
 
 import { h, render, Fragment } from 'preact';
-import Header from './components/Header';
-import Form from './components/Form';
-import Footer from './components/Footer';
+import Header from './components/header';
+import Main from './components/main';
+import Footer from './components/footer';
 
 const App = () => (
-    <>
-        <Header />
-        <Form />
-        <Footer />
-    </>
+  <>
+    <Header />
+    <Main />
+    <Footer />
+  </>
 );
 
 render(<App />, document.getElementById('app'));
