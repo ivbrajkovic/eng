@@ -1,0 +1,41 @@
+/*=============================================
+ =            Custom props            =
+ =============================================*/
+
+:root {
+  --ff-primary: 'Montserrat', sans-serif;
+  --ff-secondary: 'Work Sans', sans-serif;
+
+  --fw-regular: 400;
+  --fw-bold: 900;
+
+  --clr-primary: #2d5d7c;
+  --clr-primary-hover: #244861;
+  --clr-primary-active: #1d3d53;
+
+  --clr-light: #fff;
+  --clr-dark: #303030;
+  --clr-accent: #16e0bd;
+  --clr-body: rgb(250, 250, 250);
+
+  --fs-h1: 3rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.25rem;
+  --fs-h4: 1rem;
+  --fs-body: 1rem;
+
+  --nav-padding: 1rem;
+  --main-padding-top: calc(2.3rem + var(--nav-padding) * 2);
+}
+
+@media (min-width: 800px) {
+  :root {
+    --fs-h1: 4.5rem;
+    --fs-h2: 3.75rem;
+    --fs-h3: 1.5rem;
+    --fs-h4: 1.125rem;
+    --fs-body: 1.125rem;
+  }
+}
+
+/*=====  End of Custom props  ======*/
