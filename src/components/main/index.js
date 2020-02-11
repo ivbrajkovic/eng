@@ -17,10 +17,16 @@ const openEng = async (state, setState, setError) => {
 
   if (state.asset) {
     if (checkValue(state.asset)) value = state.asset;
-    else setError({ control: 'asset', error: 'Neispravan asset' });
+    else {
+      setError({ control: 'asset', error: 'Neispravan asset' });
+      return;
+    }
   } else if (state.telefon) {
     if (checkValue(state.telefon)) value = state.telefon;
-    else setError({ control: 'telefon', error: 'Neispravan telefon' });
+    else {
+      setError({ control: 'telefon', error: 'Neispravan telefon' });
+      return;
+    }
   } else {
     setError({ control: 'asset', error: 'Neispravan asset' });
     return;
