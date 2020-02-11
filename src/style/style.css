@@ -38,3 +38,7 @@
   background-color: var(--clr-primary-active) !important;
   border-color: var(--clr-primary-active) !important;
 }
+
+input[type='text']::placeholder {
+  opacity: 0.75;
+}

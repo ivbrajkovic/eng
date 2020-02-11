@@ -1,27 +1,53 @@
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
 
+// import { fetchHtml } from '../../lib';
+import Input from '../input';
+
 const reg = /^\d+$/;
 
-const checkAsset = asset => {
-  return asset.length > 1 && asset.length < 10 && reg.test(asset);
+const checkValue = value => {
+  return (
+    (value && value.length > 1 && value.length < 10 && reg.test(value)) || false
+  );
 };
 
-const trazi = (asset, setAsset, setError) => {
-  const valid = (asset && checkAsset(asset)) || false;
-  if (valid) {
-    setAsset('');
-    setError('');
+const openEng = async (state, setState, setError) => {
+  let value;
+
+  if (state.asset) {
+    if (checkValue(state.asset)) value = state.asset;
+    else setError({ control: 'asset', error: 'Neispravan asset' });
+  } else if (state.telefon) {
+    if (checkValue(state.telefon)) value = state.telefon;
+    else setError({ control: 'telefon', error: 'Neispravan telefon' });
+  } else {
+    setError({ control: 'asset', error: 'Neispravan asset' });
+    return;
+  }
+
+  setState({ asset: '', telefon: '' });
+
+  value &&
     window.open(
-      `https://kdr21.ip.t-com.hr/Eng/Login?PAGE_ID=ServiceAdminSearch&lang=hr&search=${asset}&QUICK=${asset}`,
+      `https://kdr21.ip.t-com.hr/Eng/Login?PAGE_ID=ServiceAdminSearch&lang=hr&search=${value}&QUICK=${value}`,
       '_blank'
     );
-  } else setError('Neispravan asset!');
 };
 
 const Form = () => {
-  const [asset, setAsset] = useState();
-  const [error, setError] = useState();
+  const [state, setState] = useState({
+    asset: '',
+    telefon: ''
+  });
+  const [error, setError] = useState({ control: '', error: '' });
+
+  const onInputHandler = e => {
+    const { id, value } = e.target;
+    setState(state => ({ ...state, [id]: value }));
+  };
+
+  const onClickHandler = () => openEng(state, setState, setError);
 
   return (
     <main class="container mt-3 mt-md-4 mt-xl-5">
@@ -29,39 +55,47 @@ const Form = () => {
         <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
           <div class="card shadow">
             <div class="card-body">
-              <div class="form-group row">
+              <div class="row">
                 <div class="col-sm-12">
-                  <label for="asset" class="col-form-label">
-                    Unesite asset
-                  </label>
-                  <input
-                    type="text"
-                    class="form-control"
+                  <Input
+                    label="Unesite asset"
                     id="asset"
+                    value={state.asset}
                     placeholder="asset"
-                    value={asset}
-                    onInput={e => setAsset(e.target.value)}
+                    error={error.control === 'asset' ? error.error : ''}
+                    onInput={onInputHandler}
                   />
-                  {error && (
-                    <small id="emailHelp" class="form-text text-muted ">
-                      {error}
-                    </small>
-                  )}
                 </div>
               </div>
 
-              <div class="form-group row">
+              <div class="row">
+                <div class="col-sm-12">
+                  <Input
+                    label="Unesite telefon"
+                    id="telefon"
+                    value={state.telefon}
+                    placeholder="telefon"
+                    error={error.control === 'telefon' ? error.error : ''}
+                    onInput={onInputHandler}
+                  />
+                </div>
+              </div>
+
+              <div class="row">
                 <div class="col text-center text-sm-left">
-                  <button
-                    type="submit"
-                    class="btn btn-primary"
-                    onClick={() => trazi(asset, setAsset, setError)}
-                  >
-                    Pretraga
-                  </button>
+                  <div class="form-group">
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      onClick={onClickHandler}
+                    >
+                      Pretraga
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
+            {/* {resPretrage} */}
           </div>
         </div>
       </div>
