@@ -42,6 +42,8 @@ const Form = () => {
   const onInputHandler = e => {
     const { id, value } = e.target;
     setState(state => ({ ...state, [id]: value }));
+
+    error.control && setError({ control: '', error: '' });
   };
 
   const onKeyPressHandler = e =>
