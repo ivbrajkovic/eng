@@ -10,8 +10,17 @@ import { h } from 'preact';
 
 // const reg = /^\d+$/;
 
-const Input = ({ label, id, value, placeholder, error, onInput }) => {
+const Input = ({
+  label,
+  id,
+  value,
+  onInput,
+  onKeyPress,
+  placeholder,
+  error
+}) => {
   console.log('TCL: Input -> label', label);
+
   return (
     <div class="form-group">
       <label for={id} class="col-form-label">
@@ -24,6 +33,7 @@ const Input = ({ label, id, value, placeholder, error, onInput }) => {
         placeholder={placeholder}
         value={value}
         onInput={onInput}
+        onKeyPress={onKeyPress}
       />
       {error && <small class="form-text text-muted ">{error}</small>}
     </div>

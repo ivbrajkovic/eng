@@ -36,16 +36,16 @@ const openEng = async (state, setState, setError) => {
 };
 
 const Form = () => {
-  const [state, setState] = useState({
-    asset: '',
-    telefon: ''
-  });
+  const [state, setState] = useState({ asset: '', telefon: '' });
   const [error, setError] = useState({ control: '', error: '' });
 
   const onInputHandler = e => {
     const { id, value } = e.target;
     setState(state => ({ ...state, [id]: value }));
   };
+
+  const onKeyPressHandler = e =>
+    e.key === 'Enter' && openEng(state, setState, setError);
 
   const onClickHandler = () => openEng(state, setState, setError);
 
@@ -61,9 +61,11 @@ const Form = () => {
                     label="Unesite asset"
                     id="asset"
                     value={state.asset}
+                    onInput={onInputHandler}
                     placeholder="asset"
                     error={error.control === 'asset' ? error.error : ''}
                     onInput={onInputHandler}
+                    onKeyPress={onKeyPressHandler}
                   />
                 </div>
               </div>
@@ -77,6 +79,7 @@ const Form = () => {
                     placeholder="telefon"
                     error={error.control === 'telefon' ? error.error : ''}
                     onInput={onInputHandler}
+                    onKeyPress={onKeyPressHandler}
                   />
                 </div>
               </div>
