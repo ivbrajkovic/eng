@@ -17,7 +17,8 @@ const Input = ({
   onInput,
   onKeyPress,
   placeholder,
-  error
+  error,
+  autofocus
 }) => {
   console.log('TCL: Input -> label', label);
 
@@ -34,6 +35,7 @@ const Input = ({
         value={value}
         onInput={onInput}
         onKeyPress={onKeyPress}
+        autofocus={autofocus}
       />
       {error && <small class="form-text text-muted ">{error}</small>}
     </div>

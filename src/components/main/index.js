@@ -74,6 +74,7 @@ const Form = () => {
                     error={error.control === 'asset' ? error.error : ''}
                     onInput={onInputHandler}
                     onKeyPress={onKeyPressHandler}
+                    autofocus={true}
                   />
                 </div>
               </div>
@@ -88,6 +89,7 @@ const Form = () => {
                     error={error.control === 'telefon' ? error.error : ''}
                     onInput={onInputHandler}
                     onKeyPress={onKeyPressHandler}
+                    autofocus={false}
                   />
                 </div>
               </div>
